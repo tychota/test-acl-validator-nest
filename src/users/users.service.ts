@@ -18,18 +18,22 @@ export class UsersService {
         userId: 2,
         username: 'chris',
         password: 'secret',
-        role: 'reg',
+        role: 'user',
       },
       {
         userId: 3,
         username: 'maria',
         password: 'guess',
-        role: 'sub',
+        role: 'user',
       },
     ];
   }
 
-  async findOne(username: string): Promise<User | undefined> {
+  async findOneByUsername(username: string): Promise<User | undefined> {
     return this.users.find(user => user.username === username);
+  }
+
+  async findOneById(id: number): Promise<User | undefined> {
+    return this.users.find(user => user.userId === id);
   }
 }
